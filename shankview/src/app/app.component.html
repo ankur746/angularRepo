@@ -23,8 +23,18 @@
     </table>
 </div>
 <div style="text-align:center">
-  <p *ngIf="check">Welcome</p>
-  <P *ngIf="!check"> Thanks to all</P>
-  <p>Change:<input type="checkbox"  (ngModel) ="check"></p>
+  <p *ngIf="check; else checkFals">Welcome</p>
+    <P>
+      <ng-template #checkFals>
+          Thanks to all
+      </ng-template>
+     
+    </P>
+  <p>Change: <input type="checkbox"  [(ngModel)]="check" ></p>
 </div> 
 
+<ng-container *ngIf="check; then welcomeMsg; else thanksMsg">
+
+</ng-container>
+<ng-template #welcomeMsg><p>Welcome callled by container</p></ng-template>
+<ng-template #thanksMsg><p>Thanks callled by container</p></ng-template>

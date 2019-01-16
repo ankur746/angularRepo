@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { NgModule  } from '@angular/core';
+
 import { checkAndUpdateBinding } from '@angular/core/src/view/util';
 
 @Component({

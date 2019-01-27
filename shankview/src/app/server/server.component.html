@@ -1,1 +1,20 @@
-<p>server component is work</p>
+<p>getting data from ts component</p>
+{{ serverId }} and {{ serverStatus }}
+<p>  {{ getStringMethod() }} </p>
+
+
+<p [innerText]= "allowNewServer"></p>
+<!-- {{ allowNewServer }} -->
+
+TextField
+<input 
+    type="text"
+    class="form-control"
+    [(ngModel)] = "serverName"
+    (input) = "onUpdateEvent($event)"
+    >
+    <br> 
+    <p *ngIf="serverCreatedStatus"> server is created and server name : {{ serverName }} </p>
+    <br>
+ 
+    <button class="btn btn-primary" [disabled]="!allowNewServer" (click)="createServer()">ADD Server</button>    
